@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamusa Corporation - Repuestos Automotrices al Mayor en Venezuela</title>
+    <meta name="description" content="Mayorista de autopartes con distribución nacional. Amplio portafolio para tiendas, talleres y distribuidores.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan-primary: #00BCD4;
+            --cyan-light: #26C6DA;
+            --cyan-dark: #0097A7;
+            --azul-corporativo: #0050A1;
+            --azul-oscuro: #003A78;
+            --gris-claro: #F8FAFC;
+            --gris-medio: #E2E8F0;
+            --grafito: #1E293B;
+            --amarillo-acento: #FFB800;
+            --blanco: #FFFFFF;
+            --negro: #0F172A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--grafito);
+            line-height: 1.6;
+            background-color: var(--blanco);
+            overflow-x: hidden;
+        }
+
+        /* ANIMACIONES */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HEADER MODERNO */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 188, 212, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 188, 212, 0.1);
+        }
+
+        .header-top {
+            background: linear-gradient(135deg, var(--cyan-primary) 0%, var(--azul-corporativo) 100%);
+            color: var(--blanco);
+            padding: 12px 0;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-top-right {
+            display: flex;
+            gap: 25px;
+        }
+
+        .header-top-right span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav {
+            padding: 18px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--cyan-primary) 0%, var(--azul-corporativo) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--grafito);
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:not(.nav-cta)::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan-primary), var(--azul-corporativo));
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:not(.nav-cta):hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--cyan-primary);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--amarillo-acento) 0%, #FFC107 100%);
+            color: var(--negro);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 184, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 184, 0, 0.4);
+            color: var(--negro);
+        }
+
+        /* CONTAINERS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .container-wide {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HERO MODERNO */
+        .hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0050A1 100%);
+            color: var(--blanco);
+            padding: 140px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 188, 212, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 80, 161, 0.2) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 188, 212, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 750px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 184, 0, 0.15);
+            border: 1px solid rgba(255, 184, 0, 0.3);
+            backdrop-filter: blur(10px);
+            color: var(--amarillo-acento);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 184, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #00BCD4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 21px;
+            margin-bottom: 45px;
+            opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 38px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--amarillo-acento) 0%, #FFC107 100%);
+            color: var(--negro);
+            box-shadow: 0 10px 30px rgba(255, 184, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 184, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--blanco);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        /* SECCIONES GENERALES */
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-label {
+            color: var(--cyan-primary);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-label::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan-primary), var(--azul-corporativo));
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--grafito);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 19px;
+            color: #64748B;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* QUIÉNES SOMOS */
+        .about {
+            background: var(--gris-claro);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 19px;
+            line-height: 1.9;
+            color: #475569;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 40px 25px;
+            background: var(--blanco);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 188, 212, 0.15);
+            border-color: rgba(0, 188, 212, 0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--cyan-primary) 0%, var(--azul-corporativo) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 36px;
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+        }
+
+        .feature-item h3 {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--grafito);
+        }
+
+        .feature-item p {
+            font-size: 15px;
+            color: #64748B;
+            font-weight: 300;
+        }
+
+        /* CATEGORÍAS MODERNAS */
+        .categories {
+            background: var(--blanco);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--blanco);
+            padding: 40px 30px;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--gris-medio);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyan-primary), var(--azul-corporativo));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category-card:hover {
+            border-color: var(--cyan-primary);
+            box-shadow: 0 20px 50px rgba(0, 188, 212, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .category-icon {
+            font-size: 52px;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 4px 10px rgba(0, 188, 212, 0.2));
+        }
+
+        .category-card h3 {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--grafito);
+        }
+
+        .category-card p {
+            font-size: 14px;
+            color: #64748B;
+            margin-bottom: 25px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .category-link {
+            color: var(--cyan-primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .category-link:hover {
+            gap: 12px;
+        }
+
+        /* MARCAS MODERNAS */
+        .brands {
+            background: linear-gradient(135deg, var(--gris-claro) 0%, #E0F2F7 100%);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            align-items: center;
+        }
+
+        .brand-item {
+            background: var(--blanco);
+            padding: 45px 35px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--grafito);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .brand-item:hover {
+            background: linear-gradient(135deg, var(--cyan-primary) 0%, var(--azul-corporativo) 100%);
+            color: var(--blanco);
+            transform: translateY(-8px) scale(1.05);
+            border-color: transparent;
+            box-shadow: 0 15px 35px rgba(0, 188, 212, 0.3);
+        }
+
+        /* BENEFICIOS */
+        .benefits {
+            background: var(--blanco);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+            padding: 45px 35px;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid var(--gris-medio);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, transparent, rgba(0, 188, 212, 0.05), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .benefit-card:hover::before {
+            left: 100%;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 188, 212, 0.15);
+            border-color: var(--cyan-primary);
+        }
+
+        .benefit-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--cyan-primary), var(--azul-corporativo));
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 42px;
+            color: var(--blanco);
+            box-shadow: 0 15px 35px rgba(0, 188, 212, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: rotateY(360deg);
+        }
+
+        .benefit-card h3 {
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--grafito);
+        }
+
+        .benefit-card p {
+            font-size: 15px;
+            color: #64748B;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* CÓMO COMPRAR */
+        .how-to-buy {
+            background: var(--gris-claro);
+        }
+
+        .steps {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 35px;
+            margin-bottom: 35px;
+            padding: 40px;
+            background: var(--blanco);
+            border-radius: 24px;
+            position: relative;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 50px rgba(0, 188, 212, 0.1);
+            border-color: rgba(0, 188, 212, 0.2);
+        }
+
+        .step-number {
+            min-width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--cyan-primary), var(--azul-corporativo));
+            color: var(--blanco);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+        }
+
+        .step-content h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--grafito);
+        }
+
+        .step-content p {
+            font-size: 16px;
+            color: #64748B;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .how-to-buy-cta {
+            text-align: center;
+        }
+
+        /* CATÁLOGO DESTACADO */
+        .catalog-featured {
+            background: linear-gradient(135deg, var(--negro) 0%, var(--azul-oscuro) 50%, var(--cyan-dark) 100%);
+            color: var(--blanco);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .catalog-featured::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 188, 212, 0.1) 0%, transparent 70%);
+            animation: gradient 15s ease infinite;
+        }
+
+        .catalog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .catalog-featured h2 {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--blanco);
+            line-height: 1.3;
+        }
+
+        .catalog-featured p {
+            font-size: 19px;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .catalog-preview {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 60px;
+            border-radius: 24px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .catalog-icon {
+            font-size: 90px;
+            margin-bottom: 25px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .btn-catalog {
+            background: linear-gradient(135deg, var(--amarillo-acento) 0%, #FFC107 100%);
+            color: var(--negro);
+            padding: 22px 60px;
+            font-size: 19px;
+            font-weight: 800;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 40px rgba(255, 184, 0, 0.4);
+        }
+
+        .btn-catalog:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 184, 0, 0.5);
+        }
+
+        /* FAQ MODERNO */
+        .faq {
+            background: var(--blanco);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--blanco);
+            margin-bottom: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--gris-medio);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--cyan-primary);
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.1);
+        }
+
+        .faq-question {
+            padding: 28px 35px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--grafito);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover .faq-question {
+            color: var(--cyan-primary);
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            color: var(--cyan-primary);
+            transition: transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-question {
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.05) 0%, rgba(0, 80, 161, 0.05) 100%);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-answer-content {
+            padding: 0 35px 30px;
+            color: #64748B;
+            font-size: 15px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        /* CONTACTO */
+        .contact {
+            background: linear-gradient(135deg, var(--gris-claro) 0%, #E0F2F7 100%);
+        }
+
+        .contact-content {
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 18px;
+            color: var(--grafito);
+        }
+
+        .contact-header p {
+            font-size: 18px;
+            color: #64748B;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            background: var(--blanco);
+            padding: 50px 45px;
+            border-radius: 24px;
+            margin-bottom: 35px;
+            box-shadow: 0 20px 60px rgba(0, 188, 212, 0.1);
+            border: 1px solid rgba(0, 188, 212, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--grafito);
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--gris-medio);
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            background: var(--gris-claro);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--cyan-primary);
+            background: var(--blanco);
+            box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--cyan-primary) 0%, var(--azul-corporativo) 100%);
+            color: var(--blanco);
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 188, 212, 0.4);
+        }
+
+        .contact-direct {
+            margin-top: 35px;
+        }
+
+        /* FOOTER MODERNO */
+        footer {
+            background: linear-gradient(135deg, var(--negro) 0%, #1E293B 100%);
+            color: var(--blanco);
+            padding: 60px 0 35px;
+            position: relative;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 38px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--cyan-primary) 0%, var(--blanco) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+        }
+
+        .footer-text {
+            font-size: 15px;
+            color: #94A3B8;
+            margin-bottom: 12px;
+            font-weight: 300;
+        }
+
+        .footer-disclaimer {
+            font-size: 13px;
+            color: #64748B;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid #334155;
+            font-weight: 300;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .categories-grid,
+            .brands-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-top-right {
+                display: none;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+        }
+
+        /* UTILIDADES */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-40 {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-left">
+                    ⚙️ Venta exclusiva al mayor
+                </div>
+                <div class="header-top-right">
+                    <span>📦 Más de 800 referencias</span>
+                    <span>🚚 Envíos a todo el país</span>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container nav-container">
+                <div class="logo-container">
+                    <img src="/mnt/user-data/uploads/images__1_.png" alt="Zamusa Corporation" class="logo-img">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="#marcas">Marcas</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#como-comprar">Cómo Comprar</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="https://wa.me/TU_NUMERO_AQUI?text=Hola%2C%20necesito%20información%20sobre%20repuestos%20al%20mayor" class="nav-cta">WhatsApp</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">✨ Venta exclusiva al mayor</div>
+                <h1>Repuestos automotrices al mayor en toda Venezuela</h1>
+                <p>Amplio portafolio de autopartes para tiendas, talleres y distribuidores. Envíos rápidos a todo el país con stock permanente.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola%2C%20necesito%20cotización%20de%20repuestos" class="btn btn-primary">
+                        <span>📱 Solicitar precios por WhatsApp</span>
+                    </a>
+                    <a href="URL_DE_TU_CATALOGO_PDF" class="btn btn-secondary" target="_blank">
+                        <span>📄 Descargar Catálogo Completo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section class="about animate-on-scroll" id="nosotros">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Quiénes Somos</div>
+                <h2 class="section-title">Zamusa Corporation</h2>
+            </div>
+            <div class="about-content">
+                <p class="about-text">
+                    Zamusa Corporation es un mayorista de autopartes con distribución nacional. Ofrecemos referencias de alta rotación en líneas ZR, Zamusa, Chery, GM, Hyundai, Ford, Isuzu y más. Atendemos exclusivamente a tiendas, talleres, flotas y distribuidores con precios competitivos y stock continuo.
+                </p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🏢</div>
+                        <h3>Mayorista Especializado</h3>
+                        <p>Exclusivo para negocios del sector automotriz</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🚚</div>
+                        <h3>Distribución Nacional</h3>
+                        <p>Cobertura en todo el territorio venezolano</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📦</div>
+                        <h3>Stock Permanente</h3>
+                        <p>Inventario disponible de alta rotación</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="categories" id="categorias">
+        <div class="container-wide">
+            <div class="section-header">
+                <div class="section-label">Nuestros Productos</div>
+                <h2 class="section-title">Categorías de Autopartes</h2>
+                <p class="section-subtitle">Amplio portafolio de repuestos organizados por categoría para facilitar tu búsqueda</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card animate-on-scroll">
+                    <div class="category-icon">⚙️</div>
+                    <h3>Bases de Motor</h3>
+                    <p>Soportes y bases para diferentes modelos de vehículos</p>
+                    <a href="URL_DE_TU_CATALOGO_PDF" target="_blank" class="category-link">Ver en catálogo →</a>
+                </div>
+                <div class="category-card animate-on-scroll">
+                    <div class="category-icon">🔌</div>
+                    <h3>Cables de Bujías</h3>
+                    <p>Sistema de encendido de alta calidad</p>
+                    <a href="URL_DE_TU_CATALOGO_PDF" target="_blank" class="category-link">Ver en catálogo →</a>
+                </div>
+                <div class="category-card animate-on-scroll">
+                    <div class="category-icon">🔧</div>
+                    <h3>Estoperas y Retenes</h3>
+                    <p>Selladores para motor y transmisión</p>
+                    <a href="URL_DE_TU_CATALOGO_PDF" target="_blank" class="category-link">Ver en catálogo →</a>
+                </div>
+                <div class="category-card animate-on-scroll">
+                    <div class="category-icon">📦</div>
+                    <h3>Empacaduras y Juegos</h3>
+                    <p>Juegos completos de empacaduras para motor</p>
+                    <a href="URL_DE_TU_CATALOGO_PDF" target="_blank" class="category-link">Ver en catálogo →</a>
+                </div>
+                <div class="category-card animate-on-scroll">
+                    <div class="category-icon">🌡️</div>
+                    <h3>Mangueras de Radiador</h3>
+                    <p>Sistema de enfriamiento y calefacción</p>
+                    <a href="URL_DE_TU_CATALOGO_PDF" target="_blank" class="category-link">Ver en catálogo →</a>
+                </div>
+                <div class="category-card animate-on-scroll">
+                    <div class="category-icon">🔩</div>
+                    <h3>Bieletas y Rótulas</h3>
+                    <p>Componentes de dirección y suspensión</p>
+                    <a href="URL_DE_TU_CATALOGO_PDF" target="_blank" class="category-link">Ver en catálogo →</a>
+                </div>
+                <div class="category-card animate-on-scroll">
+                    <div class="category-icon">⚡</div>
+                    <h3>Rodamientos</h3>
+                    <p>Rodamientos de rueda y componentes rotativos</p>
+                    <a href="URL_DE_TU_CATALOGO_PDF" target="_blank" class="category-link">Ver en catálogo →</a>
+                </div>
+                <div class="category-card animate-on-scroll">
+                    <div class="category-icon">📡</div>
+                    <h3>Sensores</h3>
+                    <p>MAP, MAF, oxígeno, levas, cigüeñal, ABS, temperatura</p>
+                    <a href="URL_DE_TU_CATALOGO_PDF" target="_blank" class="category-link">Ver en catálogo →</a>
+                </div>
+                <div class="category-card animate-on-scroll">
+                    <div class="category-icon">🛑</div>
+                    <h3>Bombas de Freno</h3>
+                    <p>Bombas maestras y de clutch</p>
+                    <a href="URL_DE_TU_CATALOGO_PDF" target="_blank" class="category-link">Ver en catálogo →</a>
+                </div>
+                <div class="category-card animate-on-scroll">
+                    <div class="category-icon">💧</div>
+                    <h3>Bombas de Agua</h3>
+                    <p>Sistema de refrigeración del motor</p>
+                    <a href="URL_DE_TU_CATALOGO_PDF" target="_blank" class="category-link">Ver en catálogo →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARCAS -->
+    <section class="brands animate-on-scroll" id="marcas">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Marcas</div>
+                <h2 class="section-title">Trabajamos con las Mejores Marcas</h2>
+            </div>
+            <div class="brands-grid">
+                <div class="brand-item">ZR Autopart</div>
+                <div class="brand-item">Zamusa</div>
+                <div class="brand-item">GM / Chevrolet</div>
+                <div class="brand-item">Chery</div>
+                <div class="brand-item">Hyundai</div>
+                <div class="brand-item">Kia</div>
+                <div class="brand-item">Ford</div>
+                <div class="brand-item">Mazda</div>
+                <div class="brand-item">Isuzu</div>
+                <div class="brand-item">Victor Reinz</div>
+                <div class="brand-item">KOYO</div>
+                <div class="brand-item">ACDelco</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS PARA MAYORISTAS -->
+    <section class="benefits">
+        <div class="container-wide">
+            <div class="section-header">
+                <div class="section-label">Ventajas Exclusivas</div>
+                <h2 class="section-title">Beneficios para Mayoristas</h2>
+                <p class="section-subtitle">Soluciones integrales para tu negocio de autopartes</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Precios Competitivos</h3>
+                    <p>Tarifas especiales para mayoristas con márgenes atractivos para tu negocio</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">📦</div>
+                    <h3>Stock Continuo</h3>
+                    <p>Inventario permanente de referencias de alta rotación</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">🔢</div>
+                    <h3>Más de 800 Referencias</h3>
+                    <p>Amplio catálogo para satisfacer todas las necesidades de tus clientes</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">🚚</div>
+                    <h3>Despachos Rápidos</h3>
+                    <p>Logística eficiente con envíos a todo el territorio nacional</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">👨‍💼</div>
+                    <h3>Asesoría Personalizada</h3>
+                    <p>Equipo técnico especializado para resolver tus consultas</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">🏢</div>
+                    <h3>Atención Especializada</h3>
+                    <p>Servicio dedicado para flotas, talleres y tiendas mayoristas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO COMPRAR -->
+    <section class="how-to-buy animate-on-scroll" id="como-comprar">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Proceso de Compra</div>
+                <h2 class="section-title">Cómo Comprar en Zamusa</h2>
+                <p class="section-subtitle">Proceso simple y directo para mayoristas</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Descarga el catálogo</h3>
+                        <p>Accede a nuestro catálogo completo con todas las referencias, marcas y especificaciones técnicas disponibles.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Envíanos tu lista por WhatsApp</h3>
+                        <p>Prepara tu lista de productos con referencias y cantidades, y envíanosla directamente por WhatsApp.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Recibe cotización inmediata</h3>
+                        <p>Nuestro equipo procesará tu solicitud y te enviará una cotización detallada en minutos.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Confirmas tu pedido</h3>
+                        <p>Revisa los precios, confirma las cantidades y procede con tu orden de compra.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Enviamos a tu ciudad</h3>
+                        <p>Preparamos y despachamos tu pedido con envío seguro a cualquier parte de Venezuela.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="how-to-buy-cta">
+                <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola%2C%20quiero%20iniciar%20mi%20pedido" class="btn btn-primary" style="font-size: 18px; padding: 20px 45px;">
+                    <span>Iniciar pedido por WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO DESTACADO -->
+    <section class="catalog-featured" id="catalogo">
+        <div class="container">
+            <div class="catalog-content">
+                <h2>Descarga el Catálogo Completo Zamusa Corporation 2025</h2>
+                <p>Accede a más de 800 referencias organizadas por categoría, marca y aplicación. Incluye códigos de referencia, especificaciones técnicas y aplicaciones vehiculares.</p>
+                <div class="catalog-preview">
+                    <div class="catalog-icon">📋</div>
+                    <p style="margin: 0; font-size: 16px; font-weight: 300;">Catálogo Digital PDF • 2025 • +800 Referencias</p>
+                </div>
+                <a href="URL_DE_TU_CATALOGO_PDF" target="_blank" class="btn-catalog">
+                    <span>📥 DESCARGAR CATÁLOGO PDF</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq animate-on-scroll" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Preguntas Frecuentes</div>
+                <h2 class="section-title">Resuelve tus Dudas</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Venden al detal o solo al mayor?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Zamusa Corporation trabaja exclusivamente con ventas al mayor. Atendemos a tiendas de autopartes, talleres mecánicos, flotas vehiculares y distribuidores. No realizamos ventas al consumidor final.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Cuál es el mínimo de compra?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            El mínimo de compra varía según la categoría y ubicación. Contáctanos por WhatsApp con tu lista de productos y te informaremos los montos mínimos aplicables para tu pedido.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Cómo funcionan los envíos?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Realizamos envíos a todo el territorio venezolano a través de empresas de encomienda confiables. Los tiempos de entrega varían según la ciudad de destino. El costo del envío se calcula según peso, volumen y destino.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Qué métodos de pago aceptan?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Aceptamos transferencias bancarias, pago móvil y divisas. Los detalles específicos de pago se proporcionan al momento de la cotización según tu método preferido.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Cómo funciona la garantía?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Todos nuestros productos cuentan con garantía del fabricante. En caso de defectos de fábrica, se realiza el cambio correspondiente según las políticas de cada marca. Los términos específicos se detallan en la factura.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Cuánto tardan en cotizar?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Nuestro tiempo de respuesta promedio es de 30 minutos a 2 horas en horario laboral. Para listas extensas, el tiempo puede extenderse ligeramente. Te confirmaremos recepción de inmediato al enviar tu solicitud.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Qué marcas manejan?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Trabajamos con marcas reconocidas como ZR Autopart, Zamusa, GM/Chevrolet, Chery, Hyundai, Kia, Ford, Mazda, Isuzu, Victor Reinz, KOYO y ACDelco, entre otras. Consulta el catálogo para ver el portafolio completo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact animate-on-scroll" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Contacto</div>
+                <h2 class="section-title">Atención Inmediata para Mayoristas</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-header">
+                    <p>Completa el formulario y te redirigiremos a WhatsApp para atención personalizada</p>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="negocio">Nombre del negocio</label>
+                        <input type="text" id="negocio" name="negocio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" name="ciudad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp">Número de WhatsApp</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="0424-1234567" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar y continuar por WhatsApp</button>
+                </form>
+                <div class="contact-direct mt-40">
+                    <p style="margin-bottom: 20px; color: #64748B; font-weight: 300;">O escríbenos directamente:</p>
+                    <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola%2C%20necesito%20información" class="btn btn-primary">
+                        <span>📱 Escribir por WhatsApp ahora</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">ZAMUSA CORPORATION</div>
+                <p class="footer-text">Mayorista de autopartes con distribución nacional</p>
+                <p class="footer-text">Venezuela</p>
+                <p class="footer-disclaimer">
+                    © 2025 Zamusa Corporation. Todos los derechos reservados.<br>
+                    Los logos y marcas comerciales son propiedad de sus respectivos dueños y se utilizan solo como referencia técnica.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Animaciones al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const wasActive = faqItem.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                if (!wasActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const negocio = document.getElementById('negocio').value;
+            const ciudad = document.getElementById('ciudad').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            
+            const mensaje = `Hola, soy ${nombre} de ${negocio} en ${ciudad}. Mi WhatsApp es ${whatsapp}. Necesito información sobre repuestos al mayor.`;
+            const mensajeCodificado = encodeURIComponent(mensaje);
+            
+            window.open(`https://wa.me/TU_NUMERO_AQUI?text=${mensajeCodificado}`, '_blank');
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
