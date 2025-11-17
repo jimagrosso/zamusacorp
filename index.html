@@ -979,33 +979,30 @@
             text-align: center;
         }
 
-       .footer-logo {
+      .footer-logo {
             font-size: 42px;
             font-weight: 900;
             background: linear-gradient(135deg, var(--cyan-primary) 0%, var(--blanco) 50%, var(--cyan-light) 100%);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 25px;
-            letter-spacing: 4px;
+                    letter-spacing: 4px;
             text-transform: uppercase;
             position: relative;
-            text-shadow: 0 0 30px rgba(0, 188, 212, 0.5);
-            filter: drop-shadow(0 4px 15px rgba(0, 188, 212, 0.3));
-            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 15px rgba(0, 188, 212, 0.4));
+            animation: shimmer 4s ease-in-out infinite;
         }
 
         @keyframes shimmer {
             0%, 100% { 
                 background-position: 0% 50%;
-                filter: drop-shadow(0 4px 15px rgba(0, 188, 212, 0.3));
             }
             50% { 
                 background-position: 100% 50%;
-                filter: drop-shadow(0 4px 20px rgba(0, 188, 212, 0.5));
             }
         }
-
         .footer-text {
             font-size: 15px;
             color: #94A3B8;
